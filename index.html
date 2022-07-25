@@ -155,7 +155,9 @@
                 const submit = root.getElementById('id_button_submit')
                 if (submit) {
                     if (!wasInitialised) {
-                        submit.addEventListener('click', () => {
+                        submit.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            event.stopPropagation();
                             var element = document.createElement( 'div' )
                             element.innerHTML = template;
                             var parent = root.getElementById('pr-lead-form-v3_inner');
